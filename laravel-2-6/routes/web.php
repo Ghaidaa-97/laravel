@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\Calculatorcontroller;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ghaidacontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,18 +14,8 @@ use App\Http\Controllers\ghaidacontroller;
 |
 */
 
-
-route::get("/",function(){
-    return view ('register');
+Route::get('/', function () {
+    return view('calculator');
 });
 
-route::get("/contact",function(){
-    return view ('contact');
-});
-
-route::get("/about",function(){
-    return view ('about');
-});
-
-
-route::get("/ghidaa" , [ghaidacontroller::class, 'ghida']);
+Route::post('/calc','Calculatorcontroller@index');
