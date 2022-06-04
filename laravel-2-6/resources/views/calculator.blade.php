@@ -22,7 +22,7 @@
         </style>
     </head>
     <body class="antialiased"> 
-        <form method="POST" action="calc">
+        <form method="GET" action="calc">
             @csrf
             <div class="container">
                 <div class="row">
@@ -39,13 +39,16 @@
                         </div>
                         <br>
                         <div class="form-group">
-                           <button type="submit" name="+">+</button>
-                           <button type="submit" name="-">-</button>
-                           <button type="submit" name="/">/</button>
-                           <button type="submit" name="*">*</button>
+                           <select name="op">
+                               <option value="+">+</option>
+                               <option value="-">-</option>
+                               <option value="*">*</option>
+                               <option value="/">/</option>
+                           </select>
                         </div>
                     </div>
                 </div>
+                <input type="submit" value="Calculate" class="btn border" name="btn">
             </div>
         </form>
     </body>

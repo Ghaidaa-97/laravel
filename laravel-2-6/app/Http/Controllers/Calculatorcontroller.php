@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CalculatorController;
 use Illuminate\Http\Request;
 
 class Calculatorcontroller extends Controller
@@ -9,34 +10,32 @@ class Calculatorcontroller extends Controller
     public function index(Request $request){
         $num1 = $request->input('num1');
         $num2 = $request->input('num2');
-        $op1=$request->submit('+');
-        $op2=$request->submit('-');
-        $op3=$request->submit('/');
-        $op4=$request->submit('*');
+        $op = $request->input('op');
         $result=0;
 
-        if($op1==true)
+        if($op=='+')
         {
             $result=$num1+$num2;
-            echo $result;
+            return $result;
         }
 
-        if($op2==true)
+        else if($op=='-')
         {
             $result=$num1-$num2;
-            echo $result;
+            return $result;
         }
 
-        if($op3==true)
-        {
-            $result=$num1/$num2;
-            echo $result;
-        }
-
-        if($op4==true)
+         else if($op=='*')
         {
             $result=$num1*$num2;
-            echo $result;
+            return $result;
         }
+
+        else if($op=='/')
+        {
+            $result=$num1/$num2;
+            return $result;
+        }
+        echo $result;
     }
 }
